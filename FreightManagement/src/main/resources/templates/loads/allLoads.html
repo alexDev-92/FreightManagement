@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="fragments/header :: common-header">   
+</head>
+<body>
+	<header>
+		<h1 class="display-4">All loads</h1>
+	
+	</header>
+	
+	<div>
+		<table class = "table table-bordered table-striped">
+			<thead class = "thead-dark">
+				<tr> 
+					<th scope = "col" >Load Number </th>
+					<th scope = "col" >Shipping City </th>
+					<th scope = "col" >Shipping State</th>
+					<th scope = "col" >Receiving City </th>
+					<th scope = "col" >Receiving State</th>
+					<th scope = "col" >Weight (lbs)</th>
+					<th scope = "col" >Commodity </th>
+					<th scope = "col" >Shipping Date </th>
+					<th scope = "col" >Receiving Date </th>
+				
+			
+				</tr>		
+			</thead>
+			
+			<tbody>
+				<tr th:if = "${loads.empty}">
+					<td colspan = "2"> No Loads Yet</td>	
+				
+				</tr>
+				
+				<tr th:each = "load: ${loads}">
+					<td th:text = "${load.id}"></td>
+					<td th:text = "${load.shippingCity}"></td>
+					<td th:text = "${load.shippingState}"></td>
+					<td th:text = "${load.receivingCity}"></td>
+					<td th:text = "${load.receivingState}"></td>
+					<td th:text = "${load.weight}"></td>
+					<td th:text = "${load.commodity}"></td>
+					<!-- TODO : fix display of date -->
+					<td th:text = "${#dates.format(load.shippingDate, 'yyyy-MM-dd')}"></td>
+				
+					<td th:text = "${#dates.format(load.receivingDate, 'yyyy-MM-dd')}"></td>
+				
+				</tr>
+			
+			
+			</tbody>
+		</table>
+	
+	
+	
+	
+	</div>
+
+</body>
+</html>

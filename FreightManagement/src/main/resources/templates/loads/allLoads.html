@@ -41,8 +41,10 @@
 					<td th:text = "${load.receivingState}"></td>
 					<td th:text = "${load.weight}"></td>
 					<td th:text = "${load.commodity}"></td>
-					<td th:text = "${load.shippingDate}"></td>
-					<td th:text = "${load.receiving date}"></td>
+					<!-- TODO : fix display of date -->
+					<td th:text = "${#dates.format(load.shippingDate, 'yyyy-MM-dd')}"></td>
+				
+					<td th:text = "${#dates.format(load.receivingDate, 'yyyy-MM-dd')}"></td>
 				
 				</tr>
 			

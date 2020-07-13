@@ -14,7 +14,7 @@ import edu.depaul.model.LoadRepository;
 import edu.depaul.model.LoadService;
 
 @Controller
-@RequestMapping("freightmanagement/loads")
+@RequestMapping("/freightmanagement/loads")
 public class loadController {
 	
 	@Autowired
